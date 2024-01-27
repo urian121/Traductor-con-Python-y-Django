@@ -1,0 +1,74 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa; /* Cambiar según sea necesario */
+}
+
+.container {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.card {
+  border: none !important;
+  border-radius: 0% !important;
+  border-right: 1px solid #dee2e6 !important;
+}
+.card-footer {
+  background-color: #fff !important;
+}
+textarea {
+  border: none;
+  resize: none;
+  outline: none;
+}
+textarea:focus {
+  outline: none;
+}
+.position-relative {
+  position: relative;
+}
+
+.copy-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 1; /* Asegura que el botón esté por encima del textarea */
+}
+.microphone-icon {
+  position: absolute;
+  bottom: 0px;
+  left: -10px;
+  z-index: 1;
+  font-size: 18px;
+}
+
+.mic-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Ajusta el tamaño del círculo según sea necesario */
+  height: 30px; /* Ajusta el tamaño del círculo según sea necesario */
+  border-radius: 50%;
+  background-color: #dddddd; /* Color gris */
+}
+#translateBtn {
+  background-color: #dddddd;
+}
+.bi-arrow-right-circle {
+  font-size: 20px;
+}
+.bi-arrow-right-circle:hover {
+  color: #0d6efd;
+  transition: all 0.5s;
+}

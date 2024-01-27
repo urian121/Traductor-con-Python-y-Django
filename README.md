@@ -57,7 +57,7 @@
         python manage.py runserver
         Revisar la consola y visitar la URL http://127.0.0.1:8000
 
-10. Crear el archivo urls.py en la aplicación (bd_django_mysql)
+10. Crear el archivo urls.py en la aplicación (traductor)
 
         from django.urls import path
         from . import views
