@@ -27,7 +27,11 @@
 
         pip install deep_translator
 
-5.  Crear el proyecto con django
+5.  Instalar Driver para conectar Gestor de BD MySQL con Django, con el fin de crear una tabla para almacenar los idiomas disponibles
+
+        pip install mysqlclient
+
+6.  Crear el proyecto con django
 
         `django-admin startproject project_core .`
         El punto . es crucial le dice al script que instale Django en el directorio actual
@@ -35,11 +39,11 @@
         Ya en este punto se puede correr el proyecto que a creado Django,
         python manage.py runserver
 
-6.  Crear mi primera aplicación en Django
+7.  Crear mi primera aplicación en Django
 
         python manage.py startapp traductor
 
-7.  Instalar nuestra aplicación (traductor) ya creada en el proyecto, en el archivo settings.py
+8.  Instalar nuestra aplicación (traductor) ya creada en el proyecto, en el archivo settings.py
 
         archivo settings.py
         INSTALLED_APPS = [
@@ -47,17 +51,17 @@
         'traductor',
         ]
 
-8.  Crear las migraciones y correrlas
+9.  Crear las migraciones y correrlas
 
         python manage.py makemigrations -> Creando migraciones
         python manage.py migrate         -> Correr migraciones
 
-9.  Correr el proyecto
+10. Correr el proyecto
 
         python manage.py runserver
         Revisar la consola y visitar la URL http://127.0.0.1:8000
 
-10. Crear el archivo urls.py en la aplicación (traductor)
+11. Crear el archivo urls.py en la aplicación (traductor)
 
         from django.urls import path
         from . import views
@@ -69,7 +73,7 @@
                         path('empleados/', views.listar_empleados, name='listar_empleados'),
                 ]
 
-11. Conectar las URLS de mi aplicación con el projecto, para esto vamos al archivo uls.py del projecto
+12. Conectar las URLS de mi aplicación con el projecto, para esto vamos al archivo uls.py del projecto
     from django.urls import path, include
 
         urlpatterns = [
@@ -77,23 +81,23 @@
                 path("", include('empleados.urls'))
         ]
 
-12. Crear la carpeta 'templates' dentro de la aplicación donde estarán mis archivos.html
+13. Crear la carpeta 'templates' dentro de la aplicación donde estarán mis archivos.html
 
-13. Crear la carpeta 'static' dentro de mi aplicacion, aqui estaran archivos
+14. Crear la carpeta 'static' dentro de mi aplicacion, aqui estaran archivos
     estaticos (css, js, imagenes, etc..)
 
-14. Correr archivo requirement.txt para instalar todas las dependencias del proyecto
+15. Correr archivo requirement.txt para instalar todas las dependencias del proyecto
 
         pip install -r requirements.txt
 
+16. Información de Paquete
+    https://pypi.org/project/deep-translator/
+
+###### El paquete deep-translator de Python. Este paquete proporciona una interfaz para traducir texto utilizando varios servicios de traducción en línea, como Google Translate, Microsoft Translator, y otros.
+
 #### Resultado final
 
-#####Formulario para registrar Empleado
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/registrar-empleado-con-django-crud-urian-viera.png)
-
-##### Lista de Empleados
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/lista-de-empleados-crud-django-urian-viera.png)
+![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/traductor-con-python.png)
 
 ### Expresiones de Gratitud 🎁
 
