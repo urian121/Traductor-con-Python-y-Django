@@ -1,5 +1,7 @@
 ### Creando un Traductor con Python y Django
 
+##### El proyecto "Traductor Multilingüe" busca crear una aplicación web que permita a los usuarios traducir texto entre varios idiomas de manera rápida y sencilla. Utilizando el poder de Python y el marco de desarrollo web Django, este proyecto ofrece una solución eficiente y accesible para las necesidades de traducción de los usuarios.
+
 1.  Crear un entorno virtual, hay muchas formas
 
         Opción 1: Crear entorno virtual con el paquete virtualenv
