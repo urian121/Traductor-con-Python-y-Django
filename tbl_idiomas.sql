@@ -1,13 +1,4 @@
 
-CREATE TABLE `tbl_idiomas` (
-  `idIdioma` int(11) NOT NULL AUTO_INCREMENT,
-  `prefijo` varchar(5) NOT NULL,
-  `idioma` varchar(50) NOT NULL,
-  PRIMARY KEY (`idIdioma`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-LOCK TABLES `tbl_idiomas` WRITE;
-/*!40000 ALTER TABLE `tbl_idiomas` DISABLE KEYS */;
 
 INSERT INTO `tbl_idiomas` (`idIdioma`, `prefijo`, `idioma`)
 VALUES
