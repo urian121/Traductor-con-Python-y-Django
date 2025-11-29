@@ -2,7 +2,7 @@
 
 El proyecto "Traductor Multilingüe" busca crear una aplicación web que permita a los usuarios traducir texto entre varios idiomas de manera rápida y sencilla. Utilizando el poder de Python y el marco de desarrollo web Django, este proyecto ofrece una solución eficiente y accesible para las necesidades de traducción de los usuarios.
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/traductor-con-python.png)
+![Demo](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/traductor-con-python.png)
 
 ## Pasos de Instalación
 
@@ -132,7 +132,7 @@ pip install -r requirements.txt
 
 ### 16. Información del paquete
 
-[https://pypi.org/project/deep-translator/](https://pypi.org/project/deep-translator/)
+[Paquete deep-translator](https://pypi.org/project/deep-translator/)
 El paquete deep-translator permite traducir texto usando varios servicios como Google Translate y Microsoft Translator.
 
 ## Expresiones de Gratitud 🎁
