@@ -30,6 +30,18 @@ ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 DEBUG = False
 ```
 
+### Configurar `STATIC_ROOT` en `settings.py`
+Será la carpeta donde Vercel guardará los archivos estáticos después del collectstatic.
+Esta debe coincidir con el nombre de la carpeta en `"distDir": "staticfiles"`
+
+
+```python
+STATIC_URL = 'static/'
+
+# Directorio donde se guardarán los archivos estáticos
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+
 ### Servir archivos estáticos con Whitenoise
 
 ```python
