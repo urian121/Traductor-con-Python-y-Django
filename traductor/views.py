@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from deep_translator import GoogleTranslator
 import json
 from . models import *  # Importando todos mis modelos (idiomas)
+from gtts import gTTS
+from io import BytesIO
 
 
 def inicio(request):
@@ -32,3 +34,26 @@ def traducitContenido(request):
 # Función que retorna una lista de todos los idiomas disponibles para traducir
 def listaIdiomas(resquest):
     return Idioma.objects.all().order_by('idioma')
+
+
+def tts(request):
+    try:
+        if request.method != 'POST':
+            return JsonResponse({'error': 'Método no permitido'}, status=405)
+
+        data = json.loads(request.body)
+        texto = data.get('texto')
+        lenguaje_destino = data.get('lenguajeDestino')
+        if not texto or not lenguaje_destino:
+            return JsonResponse({'error': 'Faltan parámetros'}, status=400)
+
+        tts = gTTS(text=texto, lang=lenguaje_destino)
+        buf = BytesIO()
+        tts.write_to_fp(buf)
+        buf.seek(0)
+
+        response = HttpResponse(buf.read(), content_type='audio/mpeg')
+        response['Content-Disposition'] = 'inline; filename="tts.mp3"'
+        return response
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)

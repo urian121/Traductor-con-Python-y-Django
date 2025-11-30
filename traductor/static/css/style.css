@@ -45,6 +45,17 @@ textarea:focus {
   right: 8px;
   z-index: 1; /* Asegura que el botón esté por encima del textarea */
 }
+.audio-icon {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 1;
+  font-size: 15px;
+  background-color: #a8aaac;
+}
+.audio-icon:hover {
+  background-color: #8b8e91;
+}
 .microphone-icon {
   position: absolute;
   bottom: 0px;

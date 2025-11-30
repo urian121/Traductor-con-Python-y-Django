@@ -37,8 +37,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       const { data, status } = response;
       if (status == 200) {
-        document.querySelector("#resultTranslatedText").textContent =
-          response.data.data;
+        document.querySelector("#resultTranslatedText").value = response.data.data;
         console.log("El texto traducido es: ", data);
       } else {
         customAlert("No hay traducciones disponibles", 0);
@@ -96,3 +95,40 @@ function customAlert(msj, tipo_msj) {
   const container = document.querySelector(".first_row");
   container.insertAdjacentElement("beforeend", divRespuesta);
 }
+
+// Reproducir audio del texto traducido usando gTTS
+document.addEventListener("DOMContentLoaded", () => {
+  const audioBtn = document.querySelector(".audio-icon");
+  if (!audioBtn) return;
+  audioBtn.addEventListener("click", async () => {
+    const textoTraducido = document.querySelector("#resultTranslatedText").value || "";
+    const lenguajeDestino = document.querySelector("#lenguajeDestino").value;
+    if (!textoTraducido.trim()) {
+      customAlert("No hay texto traducido para reproducir", 0);
+      return;
+    }
+
+    try {
+      const csrftoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+      const response = await axios({
+        method: "post",
+        url: "/tts/",
+        data: JSON.stringify({ texto: textoTraducido, lenguajeDestino }),
+        responseType: "blob",
+        headers: {
+          "X-CSRFToken": csrftoken,
+          "Content-Type": "application/json",
+        },
+      });
+
+      const audioBlob = new Blob([response.data], { type: "audio/mpeg" });
+      const url = URL.createObjectURL(audioBlob);
+      const audio = new Audio(url);
+      audio.play();
+      audio.addEventListener("ended", () => URL.revokeObjectURL(url));
+    } catch (error) {
+      console.log("Error al generar audio", error);
+      customAlert("No se pudo generar el audio", 0);
+    }
+  });
+});
