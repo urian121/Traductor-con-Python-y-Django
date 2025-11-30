@@ -5,6 +5,7 @@ charset-normalizer==3.3.2
 click==8.1.8
 deep-translator==1.11.4
 Django==5.0.1
+django-environ==0.12.0
 gTTS==2.5.4
 idna==3.6
 PyMySQL==1.1.2

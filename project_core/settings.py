@@ -10,7 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import environ
+
 import os
+
+# Inicializa entorno
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +33,7 @@ SECRET_KEY = 'django-insecure-)15t5t*z$80z(kgtt-6$g+_%3_ezc@t5d6zl-=tx4*&3k9ta)*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', '.vercel.app']
+ALLOWED_HOSTS = ['*', '.vercel.app','54ifsh.h.filess.io']
 
 
 # Application definition
@@ -76,17 +83,28 @@ WSGI_APPLICATION = 'project_core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # ENGINE es motor de BD
-        'NAME': 'bd_traductor',
-                'USER': 'root',
-                'PASSWORD': '4825',
-                'HOST': '127.0.0.1',
-                'PORT': '3306',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',  # ENGINE es motor de BD
+            'NAME': 'bd_traductor',
+            'USER': 'root',
+            'PASSWORD': '4825',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': env('DB_ENGINE'),
+            'NAME': env('DB_NAME'),
+            'USER': env('DB_USER'),
+            'PASSWORD': env('DB_PASSWORD'),
+            'HOST': env('DB_HOST'),
+            'PORT': env('DB_PORT'),
+        }
+    }
 
 
 # Password validation
