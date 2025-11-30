@@ -21,16 +21,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return;
     }
 
-    const formData = new FormData(form);
-    // Agregar lenguaje de destino al FormData
-    formData.append("lenguajeDestino", valor_lenguajeDestino);
+    const payload = {
+      texto: valor_texto,
+      lenguajeOrigen: document.querySelector("#lenguajeOrigen").value,
+      lenguajeDestino: valor_lenguajeDestino,
+    };
     try {
+      const csrftoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
       const response = await axios({
         method: "post",
         url: "/traducir-contenido/",
-        data: formData,
+        data: JSON.stringify(payload),
         headers: {
-          "X-CSRFToken": formData.get("csrfmiddlewaretoken"),
+          "X-CSRFToken": csrftoken,
           "Content-Type": "application/json",
         },
       });
