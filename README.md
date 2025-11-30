@@ -52,7 +52,7 @@ pip install deep_translator
 ### 5. Instalar driver de MySQL
 
 ```bash
-pip install mysqlclient
+pip install pymysql
 ```
 
 ### 6. Crear el proyecto
