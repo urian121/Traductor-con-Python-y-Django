@@ -40,6 +40,9 @@ STATIC_URL = 'static/'
 
 # Directorio donde se guardarán los archivos estáticos
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# ⭐ IMPORTANTE PARA PRODUCCIÓN (VERCEL)
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 ```
 
 ### Servir archivos estáticos con Whitenoise
